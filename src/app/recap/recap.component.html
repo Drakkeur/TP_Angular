@@ -1,0 +1,16 @@
+  <h2>Bienvenue {{user.firstName}} </h2>
+
+  <fieldset class="border p-3">
+    <legend class="w-auto">Vos Informations Personnelles</legend>
+    <ul>
+        <li>Nom : {{user.name | uppercase}}</li>
+        <li>Prénom : {{user.firstName}}</li>
+        <li>Adresse : {{user.adress}}</li>
+        <li>Code Postal : {{user.cp}}</li>
+        <li>Ville : {{user.ville}}</li>
+        <li>Téléphone : {{user.tel | tel }}</li>
+        <li>E-mail : {{user.email}}</li>
+        <li>Civilité: {{user.civilite}}</li>
+        <li>Login : {{user.login}}</li>
+    </ul>
+  </fieldset>

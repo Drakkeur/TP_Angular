@@ -1,0 +1,101 @@
+<div class="container">
+  <div *ngIf="!validCompte">
+    <form [formGroup]="compteForm" (ngSubmit)="saveUser()">
+        <div class="form-group">
+          <fieldset class="border p-3">
+            <legend class="w-auto">Informations Personnelles</legend>
+              <label>Nom<span class="obligatoire">*</span> : </label>
+              <input formControlName="name" class="form-control" type="text" id="name" pattern="[a-zA-ZÀ-ÿ\-]{2,20}"required >
+              <div *ngIf="getCompte.name.errors && submit">
+                <span class="obligatoire" >Le champ Nom est Obligatoire.</span>
+              </div>
+              
+              <label>Prénom<span class="obligatoire">*</span> : </label>
+              <span class="obligatoire" style="visibility: hidden" id="errorFirstName">Une erreur de format est présent</span>
+              <input formControlName="firstName" class="form-control" type="text" id="firstName" pattern="[a-zA-ZÀ-ÿ\-]{2,20}" required>
+              <div *ngIf="getCompte.firstName.errors && submit">
+                <span class="obligatoire" >Le champ Prénom est Obligatoire.</span>
+              </div>
+    
+              <label>Adresse<span class="obligatoire">*</span> : </label>
+              <span class="obligatoire" style="visibility: hidden" id="errorAdress">Une erreur de format est présent</span>
+              <input formControlName="adress" class="form-control" type="text" id="adress" pattern="[0-9]{1,4}[a-zA-ZÀ-ÿ\-\.\s]{2,200}" title="1 boulevard de la marne" required>
+              <div *ngIf="getCompte.adress.errors && submit">
+                <span class="obligatoire" >Le champ Adresse est Obligatoire.</span>
+              </div>
+              
+              <label>Code postal<span class="obligatoire">*</span> : </label>
+              <span class="obligatoire" style="visibility: hidden" id="errorCp">Une erreur de format est présent</span>
+              <input formControlName="cp" class="form-control" type="number" id="cp" title="67000" required>
+              <div *ngIf="getCompte.cp.errors && submit">
+                <span class="obligatoire" >Le champ Code postal est Obligatoire.</span>
+              </div>
+              
+              <label>Ville<span class="obligatoire">*</span> : </label>
+              <span class="obligatoire" style="visibility: hidden" id="errorVille">Une erreur de format est présent</span>
+              <input formControlName="ville" class="form-control" type="text" id="ville" pattern="[a-zA-ZÀ-ÿ\-]{2,30}" required>
+              <div *ngIf="getCompte.ville.errors && submit">
+                <span class="obligatoire" >Le champ Ville est Obligatoire.</span>
+              </div>
+              
+              <label>Téléphone<span class="obligatoire">*</span> : </label>
+              <span class="obligatoire" style="visibility: hidden" id="errorTel">Une erreur de format est présent</span>
+              <input formControlName="tel" class="form-control" type="tel" id="tel" title="01 02 03 04 05" required>
+              <div *ngIf="getCompte.tel.errors && submit">
+                <span class="obligatoire" >Le champ Téléphone est Obligatoire.</span>
+              </div>
+              
+              <label>E-mail<span class="obligatoire">*</span> : </label>
+              <span class="obligatoire" style="visibility: hidden" id="errorEmail">Une erreur de format est présent</span>
+              <input formControlName="email" class="form-control" type="email" id="email" required>
+              <div *ngIf="getCompte.email.errors && submit">
+                <span class="obligatoire" >Le champ E-mail est Obligatoire.</span>
+              </div>
+    
+              <label>Civilté<span class="obligatoire">*</span> : </label>
+              <select formControlName="civilite" class="form-control" id="civilite" required>
+                <option value="" >Choix de votre civilité</option>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+                <option value="autre">Autre</option>
+              </select>
+              <div *ngIf="getCompte.civilite.errors && submit">
+                <span class="obligatoire" >Le champ Civilté est Obligatoire.</span>
+              </div>
+              
+          </fieldset>
+    
+          <fieldset class="border p-3">
+            <legend class="w-auto">Informations de connexion</legend>
+            <label>Login<span class="obligatoire">*</span> : </label>
+            <input formControlName="login" class="form-control" type="text" id="login" pattern="[a-zA-ZÀ-ÿ0-9\-]{2,20}" required>
+            <div *ngIf="getCompte.login.errors && submit">
+              <span class="obligatoire" >Le champ Login est Obligatoire.</span>
+            </div>
+    
+            <label>Mot de passe<span class="obligatoire">*</span> : </label>
+            <span class="obligatoire" style="visibility: hidden" id="errorPassword">Les mots de passes de correspondent pas.</span>
+            <input formControlName="password" class="form-control" type="password" id="password" required>
+            <div *ngIf="getCompte.password.errors && submit">
+              <span class="obligatoire" >Le Mot de passe est Obligatoire.</span>
+            </div>
+            <div *ngIf="!validPassword">
+              <span class="obligatoire" >Les Mots de passe ne sont pas similaires.</span>
+            </div>
+              
+            <label>Confirmation du mot de passe<span class="obligatoire">*</span> :  </label>
+            <input formControlName="passwordVerif" class="form-control" type="password" id="passwordVerif" required>
+            <div *ngIf="getCompte.passwordVerif.errors && submit">
+              <span class="obligatoire" >La Confirmation du mot de passe est Obligatoire.</span>
+            </div>
+    
+          </fieldset>
+        </div>
+      <input type="submit" class="btn btn-primary">
+    </form>
+  </div>
+</div>
+
+<div *ngIf="submit && validCompte">
+  <app-recap [user]="user"></app-recap>
+</div>

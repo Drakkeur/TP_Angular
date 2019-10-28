@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <input type="text" class="form-control mt-4" placeholder="Rechercher par nom d'album" [(ngModel)]="searchTerm"/>
+      <div *ngFor="let product of filteredProducts">
+          <div class="col-sm m-1 mt-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h4 class="card-title">{{ product.name }}</h4>
+                <h5 class="card-subtitle mb-2 text-muted">de {{ product.artist }} </h5>
+                <p class="card-text">{{ product.description }}</p>
+                <h4 class="card-subtitle mb-2">{{ product.price }} € </h4>
+                <h6 class="card-subtitle mb-2 text-muted">Quantité : {{ product.quantity }} </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>

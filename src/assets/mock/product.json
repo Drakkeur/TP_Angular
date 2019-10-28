@@ -1,0 +1,7 @@
+[
+    {"name":"Structuralism", "artist":"Alfa Mist", "price": 24.98, "quantity": 34, "description": "Vinyle"},
+    {"name":"Antiphon", "artist":"Alfa Mist", "price": 15.39, "quantity": 86, "description": "CD"},
+    {"name":"Ocean In A Drop (Music for Film)", "artist":"Gogo Penguin", "price": 12.99, "quantity": 49, "description": "Vinyle"},
+    {"name":"A Humdrum Star", "artist":"Gogo Penguin", "price": 9.89, "quantity": 230, "description": "CD"},
+    {"name":"An Ancient Observer", "artist":"Tigran Hamasyan", "price": 14.99, "quantity": 36, "description": "CD"}
+]
