@@ -1,38 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
-import { TetiereComponent } from './tetiere/tetiere.component';
-import { FooterComponent } from './footer/footer.component';
-import { RecapComponent } from './recap/recap.component';
-import { CompteComponent } from './compte/compte.component';
-import { CatalogueComponent } from './catalogue/catalogue.component';
-
+import { TetiereComponent } from "./tetiere/tetiere.component";
+import { FooterComponent } from "./footer/footer.component";
+import { RecapComponent } from "./recap/recap.component";
+import { CompteComponent } from "./compte/compte.component";
+import { CatalogueComponent } from "./catalogue/catalogue.component";
 
 import { TelPipe } from "./models/telpipe";
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { ApiService } from './api.service';
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+import { TooltipModule } from "ngx-bootstrap/tooltip";
+import { ModalModule } from "ngx-bootstrap/modal";
+import { ApiService } from "./api.service";
 
-import { RouterModule, Routes } from '@angular/router';
-
+import { RouterModule, Routes } from "@angular/router";
+import { PanierComponent } from "./panier/panier.component";
 
 const appRoutes: Routes = [
-  { path: 'catalogue', component: CatalogueComponent },
-  { path: 'compte',      component: CompteComponent },
-  { path: '',
-    redirectTo: '/catalogue',
-    pathMatch: 'full'
-  }
+  { path: "catalogue", component: CatalogueComponent },
+  { path: "compte", component: CompteComponent },
+  { path: "panier", component: PanierComponent },
+  { path: "", redirectTo: "/catalogue", pathMatch: "full" }
 ];
-
-
 
 @NgModule({
   declarations: [
@@ -42,18 +37,19 @@ const appRoutes: Routes = [
     CompteComponent,
     RecapComponent,
     TelPipe,
-    CatalogueComponent
+    CatalogueComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot(), 
+    ModalModule.forRoot(),
     RouterModule.forRoot(
-      appRoutes,
+      appRoutes
       //{ enableTracing: true } // <-- debugging purposes only
     ),
     HttpClientModule
@@ -61,6 +57,6 @@ const appRoutes: Routes = [
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 
 export class AppBootstrapModule {}

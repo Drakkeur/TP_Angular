@@ -26,6 +26,9 @@ export class CatalogueComponent implements OnInit {
     this.filteredProducts = this.filterProducts(value);
   }
 
+  addArticle(name, ref) { this.store.dispatch(new AddArticle({ name, ref})); }
+
+
   filterProducts(searchParam: string): Product[]{
     return this.products.filter(product =>
       product.name.toLowerCase().indexOf(searchParam.toLowerCase()) !== -1);

@@ -10,6 +10,7 @@
                 <p class="card-text">{{ product.description }}</p>
                 <h4 class="card-subtitle mb-2">{{ product.price }} € </h4>
                 <h6 class="card-subtitle mb-2 text-muted">Quantité : {{ product.quantity }} </h6>
+                <button mat-button (click)="AddToCart()">Ajouter au panier</button>
               </div>
             </div>
           </div>
